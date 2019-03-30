@@ -2,53 +2,51 @@ package com.Shopping.models;
 
 public class Pedido {
 
-	private final long IDProducto;
-	private final long CedulaCliente;
-	private final String Provedor;
-	private final String Productos;
-	private final long Cantidad;
-	private final long Peso;
-	private String Tipo;
+	private final long idproducto;
+	private final long cedulacliente;
+	private final String provedor;
+	private final String productos;
+	private final long cantidad;
+	private final long peso;
+	private String tipo;
 	
-	public Pedido(long IDProducto,long CedulaCliente, String Provedor, String Productos, long Cantidad,long Peso,String Tipo) {
+	public Pedido(long idproducto,long cedulaCliente, String provedor, String productos, long cantidad,long peso,String tipo) {
 		
-		this.IDProducto = IDProducto;
-		this.CedulaCliente = CedulaCliente;
-		this.Provedor = Provedor;
-		this.Productos = Productos;
-		this.Cantidad = Cantidad;
-		this.Peso = Peso;
-		this.Tipo = Tipo;
-		
+		this.idproducto = idproducto;
+		this.cedulacliente = cedulaCliente;
+		this.provedor = provedor;
+		this.productos = productos;
+		this.cantidad = cantidad;
+		this.peso = peso;
+		this.tipo = tipo;
 	}
 	
-	public long getIDProducto() {
-		// TODO Auto-generated method stub
-		return IDProducto;
+	public long getidproducto() {
+		return idproducto;
 	}
 	
 	public long getCedulaCliente() {
-		return CedulaCliente;
+		return cedulacliente;
 	}
 	
 	public String getProvedor() {
-		return Provedor;
+		return provedor;
 	}
 	
 	public String getProductos() {
-		return Productos;
+		return productos;
 	}
 	
 	public long getPeso() {
-		return Peso;
+		return peso;
 	}
 	
 	public long getCantidad() {
-		return Cantidad;
+		return cantidad;
 	}
 	
 	public String getTipo() {
-		return Tipo;
+		return tipo;
 	}
 	
 	

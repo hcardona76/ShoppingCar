@@ -15,8 +15,7 @@ public class Proveedor {
 		
 		
 		
-		public Proveedor(int ID,String Razon_Social,int RUT,int Telefono_Contacto,String Direccion,String Horario_Disponibilidad,String Contacto,String Productos) {
-			
+		public Proveedor(int ID,String Razon_Social,int RUT,int Telefono_Contacto,String Direccion,String Horario_Disponibilidad,String Contacto,String Productos) {			
 			this.ID=ID;
 			this.Razon_Social=Razon_Social;
 			this.RUT= RUT;
@@ -25,7 +24,6 @@ public class Proveedor {
 			this.Horario_Disponibilidad=Horario_Disponibilidad;
 			this.Contacto=Contacto;
 			this.Productos = Productos;
-		
 		}
 
 				

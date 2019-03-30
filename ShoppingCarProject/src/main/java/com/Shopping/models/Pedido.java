@@ -22,6 +22,35 @@ public class Pedido {
 		
 	}
 	
+	public long getIDProducto() {
+		// TODO Auto-generated method stub
+		return IDProducto;
+	}
+	
+	public long getCedulaCliente() {
+		return CedulaCliente;
+	}
+	
+	public String getProvedor() {
+		return Provedor;
+	}
+	
+	public String getProductos() {
+		return Productos;
+	}
+	
+	public long getPeso() {
+		return Peso;
+	}
+	
+	public long getCantidad() {
+		return Cantidad;
+	}
+	
+	public String getTipo() {
+		return Tipo;
+	}
+	
 	
 	
 }

@@ -4,43 +4,57 @@ public class Proveedor {
 
 	
 
-		private final String Nit;
+		private final int ID;
 		private final String Razon_Social;
-		private final String Telefono1;
-		private final String Telefono2;
+		private final int RUT;
+		private final int Telefono_Contacto;
 		private final String Direccion; 
+		private final String Horario_Disponibilidad;
+		private final String Contacto;
 		private final String Productos;
 		
-		public Proveedor(String Nit,String Razon_Social,String Telefono1,String Telefono2,String Direccion,String Productos) {
+		
+		
+		public Proveedor(int ID,String Razon_Social,int RUT,int Telefono_Contacto,String Direccion,String Horario_Disponibilidad,String Contacto,String Productos) {
 			
-			this.Nit=Nit;
+			this.ID=ID;
 			this.Razon_Social=Razon_Social;
-			this.Telefono1= Telefono1;
-			this.Telefono2= Telefono2;
+			this.RUT= RUT;
+			this.Telefono_Contacto= Telefono_Contacto;
 			this.Direccion = Direccion;
+			this.Horario_Disponibilidad=Horario_Disponibilidad;
+			this.Contacto=Contacto;
 			this.Productos = Productos;
 		
 		}
 
 				
-		public String getNit() {
-			return Nit;
+		public int getID() {
+			return ID;
 		}
 		
 		public String getRazon_Social() {
 			return Razon_Social;
 		}
 		
-		public String getTelefono1() {
-			return Telefono1;
+		public int getRUT() {
+			return RUT;
 		}
 		
-		public String getTelefono2() {
-			return Telefono2;
+		public int getTelefono_Contacto() {
+			return Telefono_Contacto;
 		}
 		
 		public String getDireccion() {
 			return Direccion;
+		}
+		
+		public String getHorario_Disponibilidad() {
+			return Horario_Disponibilidad;
+		}
+		
+		public String getContacto() {
+			return Contacto;
 		}
 		
 		public String getProductos() {

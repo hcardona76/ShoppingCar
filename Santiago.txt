@@ -1,1 +1,3 @@
-Prueba de comandos
+<<<<<<< HEAD
+
+>>>>>>> 2722509015ccca7ebf170a720cb43cbf5a6ac8b0

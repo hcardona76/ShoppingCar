@@ -50,7 +50,7 @@ public class Pago_Tarjeta {
 	}
 	
 	public static boolean DescontarSaldo() {
-		return false:
+		return false;
 	}
 	
 }

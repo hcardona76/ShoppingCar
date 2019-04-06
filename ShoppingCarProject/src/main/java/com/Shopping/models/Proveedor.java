@@ -1,10 +1,31 @@
 package com.Shopping.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+
+
 public class Proveedor {
 
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 
 		private int ID;
+		@Override
+		
+		
+	public String toString() {
+		return "Proveedor [ID=" + ID + ", Razon_Social=" + Razon_Social + ", RUT=" + RUT + ", Telefono_Contacto="
+				+ Telefono_Contacto + ", Direccion=" + Direccion + ", Horario_Disponibilidad=" + Horario_Disponibilidad
+				+ ", Contacto=" + Contacto + ", Productos=" + Productos + "]";
+	}
+
+
+
 		private String Razon_Social;
 		private int RUT;
 		private int Telefono_Contacto;

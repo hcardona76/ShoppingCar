@@ -1,12 +1,12 @@
 package com.Shopping.models;
 
 public class Cliente {
-	private final long cedula;
-	private final String nombrecompleto;
-	private final String telefono;
-	private final String direccion; 
-	private final String celular;
-	private final String tipo;
+	private long cedula;
+	private String nombrecompleto;
+	private String telefono;
+	private String direccion; 
+	private String celular;
+	private String tipo;
 	
 	public Cliente(long cedula, String nombrecompleto, String telefono, String direccion, String celular, String tipo) {
 		this.cedula=cedula;
@@ -14,6 +14,29 @@ public class Cliente {
 		this.telefono= telefono;
 		this.direccion = direccion;
 		this.celular = celular;
+		this.tipo = tipo;
+	}
+	
+	public void setCedula(long cedula) {
+		this.cedula = cedula;
+	}
+
+	public void setNombrecompleto(String nombrecompleto) {
+		this.nombrecompleto = nombrecompleto;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 

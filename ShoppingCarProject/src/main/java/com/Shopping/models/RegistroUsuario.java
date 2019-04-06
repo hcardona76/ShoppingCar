@@ -1,6 +1,22 @@
 package com.Shopping.models;
 
+import javax.persistence.GenerationType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class RegistroUsuario {
+	
+	@Override
+	public String toString() {
+		return "RegistroUsuario [cedula=" + cedula + ", nombrecompleto=" + nombrecompleto + ", telefono1=" + telefono1
+				+ ", telefono2=" + telefono2 + ", direccion=" + direccion + ", tipo=" + tipo + ", Ciudad=" + Ciudad
+				+ "]";
+	}
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private final long cedula;
 	private final String nombrecompleto;
 	private final long telefono1;
@@ -11,6 +27,7 @@ public class RegistroUsuario {
 	
 	
 	public RegistroUsuario(long cedula, String nombrecompleto, long telefono1,long telefono2, String direccion, String Ciudad, String tipo) {
+
 		this.cedula=cedula;
 		this.nombrecompleto=nombrecompleto;
 		this.telefono1= telefono1;

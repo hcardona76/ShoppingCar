@@ -1,5 +1,12 @@
 package com.Shopping.models;
 
+import javax.persistence.GenerationType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class RegistroUsuario {
 	private final long cedula;
 	private final String nombrecompleto;
@@ -11,6 +18,8 @@ public class RegistroUsuario {
 	
 	
 	public RegistroUsuario(long cedula, String nombrecompleto, long telefono1,long telefono2, String direccion, String Ciudad, String tipo) {
+		@id
+		@GenerateValue(strategy=GenerationType.AUTO)
 		this.cedula=cedula;
 		this.nombrecompleto=nombrecompleto;
 		this.telefono1= telefono1;

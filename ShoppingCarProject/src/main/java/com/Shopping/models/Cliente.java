@@ -1,43 +1,69 @@
 package com.Shopping.models;
 
 public class Cliente {
+	private long cedula;
+	private String nombrecompleto;
+	private String telefono;
+	private String direccion; 
+	private String celular;
+	private String tipo;
+	
+	public Cliente(long cedula, String nombrecompleto, String telefono, String direccion, String celular, String tipo) {
+		this.cedula=cedula;
+		this.nombrecompleto=nombrecompleto;
+		this.telefono= telefono;
+		this.direccion = direccion;
+		this.celular = celular;
+		this.tipo = tipo;
+	}
+	
+	public void setCedula(long cedula) {
+		this.cedula = cedula;
+	}
 
-	private final long Cedula;
-	private final String Nombre_Completo;
-	private final String Telefono;
-	private final String Direccion; 
-	private final String Celular;
-	
-	public Cliente(long Cedula, String Nombre_Completo, String Telefono, String Direccion, String Celular) {
-		// TODO Auto-generated constructor stub
-		this.Cedula=Cedula;
-		this.Nombre_Completo=Nombre_Completo;
-		this.Telefono= Telefono;
-		this.Direccion = Direccion;
-		this.Celular = Celular;
-	
+	public void setNombrecompleto(String nombrecompleto) {
+		this.nombrecompleto = nombrecompleto;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public String getNombre() {
-		// TODO Auto-generated method stub
-		return Nombre_Completo;
+		return nombrecompleto;
 	}
 	
 	public long getCedula() {
-		return Cedula;
+		return cedula;
 	}
 	
 	public String getTelefono() {
-		return Telefono;
+		return telefono;
 	}
 	
 	public String getDireccion() {
-		return Direccion;
+		return direccion;
 	}
 	
 	public String getCelular() {
-		return Celular;
+		return celular;
 	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+	
 
 	
 	

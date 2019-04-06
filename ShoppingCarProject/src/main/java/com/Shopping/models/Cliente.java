@@ -1,6 +1,16 @@
 package com.Shopping.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Cliente {
+	
+		@Id  // Id de la clase
+		@GeneratedValue(strategy=GenerationType.AUTO)  // Genera automatico la base de datos, de esta entidad (Clase)
+	
 	private long cedula;
 	private String nombrecompleto;
 	private String telefono;
@@ -9,6 +19,7 @@ public class Cliente {
 	private String tipo;
 	
 	public Cliente(long cedula, String nombrecompleto, String telefono, String direccion, String celular, String tipo) {
+	
 		this.cedula=cedula;
 		this.nombrecompleto=nombrecompleto;
 		this.telefono= telefono;
@@ -62,6 +73,12 @@ public class Cliente {
 	
 	public String getTipo() {
 		return tipo;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [cedula=" + cedula + ", nombrecompleto=" + nombrecompleto + ", telefono=" + telefono
+				+ ", direccion=" + direccion + ", celular=" + celular + ", tipo=" + tipo + "]";
 	}
 	
 

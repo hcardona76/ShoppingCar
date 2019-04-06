@@ -1,9 +1,17 @@
 package com.Shopping.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+
+
 public class Proveedor {
 
 	
-
+	@Id
+	@GeneratedValue
 		private int ID;
 		private String Razon_Social;
 		private int RUT;

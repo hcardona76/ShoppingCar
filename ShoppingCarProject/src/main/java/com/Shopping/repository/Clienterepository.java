@@ -8,9 +8,12 @@ import com.Shopping.*;
 import com.Shopping.models.Cliente;
 
 
+
 	public interface Clienterepository extends CrudRepository<Cliente, Integer> {
 		
 	  
+		 
+		
 		
 	}	
 	

@@ -9,4 +9,5 @@ import com.Shopping.models.Proveedor;
 
 public interface Proveedorrepository extends CrudRepository<Proveedor,Integer> {
 
+	
 }

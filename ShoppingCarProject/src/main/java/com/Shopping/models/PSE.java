@@ -4,7 +4,7 @@ public class PSE {
 	private final String Banco;
 	private final int idReferenciaTiket;
 	
-		public PSE(String Banco,int ticket) {
+	public PSE(String Banco,int ticket) {
 		this.Banco=Banco;
 		this.idReferenciaTiket=ticket;
 	}
@@ -13,6 +13,8 @@ public class PSE {
 	public static int Realizar_Pago() {
 		return 0;
 	}
+	
+	
 	
 	
 }

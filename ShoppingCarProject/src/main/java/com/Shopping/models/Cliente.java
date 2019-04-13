@@ -18,6 +18,8 @@ public class Cliente {
 	private String celular;
 	private String tipo;
 	
+	protected Cliente() {}
+	
 	public Cliente(long cedula, String nombrecompleto, String telefono, String direccion, String celular, String tipo) {
 	
 		this.cedula=cedula;
@@ -26,6 +28,7 @@ public class Cliente {
 		this.direccion = direccion;
 		this.celular = celular;
 		this.tipo = tipo;
+		
 	}
 	
 	public void setCedula(long cedula) {

@@ -20,6 +20,8 @@ public class Pedido {
 	private String tipo;
 	private String estado;
 	
+	protected Pedido() {}
+	
 	public Pedido(long idproducto,long cedulaCliente, String provedor, String productos, long cantidad,long peso,String tipo,String estado) {
 		
 		 

@@ -9,14 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @ComponentScan(basePackages = "com.Shopping")
-@RequestMapping(path="/pos")
+@RequestMapping(path="/pedidocontroller")
 
 public class pedidocontroller {
-	
-	
-	
-	
-	
-	
-	
+		
 }

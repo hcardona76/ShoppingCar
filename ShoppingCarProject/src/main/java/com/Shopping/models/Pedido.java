@@ -1,7 +1,16 @@
 package com.Shopping.models;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+
+@Entity
 public class Pedido {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long idproducto;
 	private long cedulacliente;
 	private String provedor;
@@ -13,6 +22,8 @@ public class Pedido {
 	
 	public Pedido(long idproducto,long cedulaCliente, String provedor, String productos, long cantidad,long peso,String tipo,String estado) {
 		
+		 
+		 
 		this.idproducto = idproducto;
 		this.cedulacliente = cedulaCliente;
 		this.provedor = provedor;
@@ -85,6 +96,13 @@ public class Pedido {
 	
 	public String getTipo() {
 		return tipo;
+	}
+
+	@Override
+	public String toString() {
+		return "Pedido [idproducto=" + idproducto + ", cedulacliente=" + cedulacliente + ", provedor=" + provedor
+				+ ", productos=" + productos + ", cantidad=" + cantidad + ", peso=" + peso + ", tipo=" + tipo
+				+ ", estado=" + estado + "]";
 	}
 	
 	

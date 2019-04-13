@@ -1,5 +1,19 @@
 package com.Shopping.repository;
 
-public class Clienterepository {
+import java.util.List;
 
-}
+import org.springframework.data.repository.CrudRepository;
+
+import com.Shopping.*;
+import com.Shopping.models.Cliente;
+
+
+	public interface Clienterepository extends CrudRepository<Cliente, Integer> {
+		
+	  
+		
+	}	
+	
+	
+	
+

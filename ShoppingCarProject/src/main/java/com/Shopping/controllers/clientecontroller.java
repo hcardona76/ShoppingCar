@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.Shopping.models.Cliente;
 import com.Shopping.repository.Clienterepository;
-import com.pos.models.Customer;
+
 import com.Shopping.repository.*;
 
 

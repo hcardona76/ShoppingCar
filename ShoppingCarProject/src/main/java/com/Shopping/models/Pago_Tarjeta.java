@@ -1,6 +1,15 @@
 package com.Shopping.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Pago_Tarjeta {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private final long NroTarjeta;
 	private final String Filial;
 	private final int FechaVencimiento;

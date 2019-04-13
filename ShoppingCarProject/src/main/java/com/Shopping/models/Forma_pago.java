@@ -10,21 +10,28 @@ public class Forma_pago {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private final int id;
-	private final int idCliente;
-	private final String Nombre;
-	private final String email;
-	private final int idReferenciaTiket;
-		
-	public Forma_pago(int Cliente,String Nombre,String email,int ticket) {
-		
-		this.id=1;
-		this.idCliente=Cliente;
-		this.Nombre=Nombre;
-		this.email=email;
-		this.idReferenciaTiket=ticket;
+	private  int id;
+	private int idCliente;
+	private String Nombre;
+	public void setId(int id) {
+		this.id = id;
 	}
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+	public void setNombre(String nombre) {
+		Nombre = nombre;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setIdReferenciaTiket(int idReferenciaTiket) {
+		this.idReferenciaTiket = idReferenciaTiket;
+	}
+	private String email;
+	private int idReferenciaTiket;
 	
+
 	public int getId() {
 		return id;
 	}
@@ -41,25 +48,23 @@ public class Forma_pago {
 		return idReferenciaTiket;
 	}
 	
-	public static int Tarjeta_Credito() {
-		return 0;		
-	}
+	//
+	protected Forma_pago() {}
 	
-	
-	public static int PSE() {
-		return 0;
+	public Forma_pago(int id, int idCliente, String nombre, String email, int idReferenciaTiket) {
+		super();
+		this.id = id;
+		this.idCliente = idCliente;
+		Nombre = nombre;
+		this.email = email;
+		this.idReferenciaTiket = idReferenciaTiket;
 	}
-	
-	public static boolean Efectivo() {
-		return false;
-	}
-
 	@Override
 	public String toString() {
 		return "Forma_pago [id=" + id + ", idCliente=" + idCliente + ", Nombre=" + Nombre + ", email=" + email
 				+ ", idReferenciaTiket=" + idReferenciaTiket + "]";
 	}
-	
-	
-	
+		
+
+
 }

@@ -16,8 +16,8 @@ public class Forma_Pago_controller {
 	private Forma_Pago_repository FormaPagoRepository;
 	
 	@GetMapping(path="/getFormaPago")
-	public @ResponseBody String getAllFormaPago() {
-		return "data";
+	public @ResponseBody Forma_Pago_repository getAllFormaPago() {
+		return FormaPagoRepository;
 	}
 
 }

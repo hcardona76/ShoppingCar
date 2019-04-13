@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping(path="/TarjetaCredito")
+@RequestMapping(path="/PagoTarjeta")
 @ComponentScan(basePackages="com.Shopping")
 public class Tarjeta_Credito_Controller {
 

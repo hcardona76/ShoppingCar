@@ -32,6 +32,7 @@ public class clientecontroller {
 			@RequestParam String celular,
 			@RequestParam String tipo) {
 		
+		
 		Clienterepository.save(new 
 				Cliente(cedula, nombrecompleto,telefono,direccion,celular,tipo
 						));

@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+           <script type="text/javascript">
+            var app = angular.module("CustomerManagement", []);            
+            app.controller("Proveedorcontroller", function($scope, $http) {         
+                //Initialize page with default data which is blank in this example
+                $scope.Proveedor = [];
+                $scope.form = {
+                    id : -1,
+                    ID : "",
+                    Razon_Social : "",
+                    RUT : "",
+                    Telefono_Contacto : "",
+                    Direccion : "",
+                    Horario_Disponibilidad : "",
+                    Contacto : "",
+                    Productos : ""
+                  
+
+                };
+
+                _refreshPageData();
+            
+                
+              //HTTP POST/PUT methods for add/edit employee
+                $scope.submitProveedor = function() {         
+                    var method = 'POST'; // "PUT"  // "POST"
+                    var url = 'pos/updatecustomer';                     
+                    $http({
+                        method : method,
+                        url : url,
+                        data : angular.toJson($scope.form),
+                        headers : {
+                        	'Content-Type': 'application/json; charset=UTF-8',
+                            'Accept': 'application/json; charset=UTF-8'
+                        }
+                    }).then( _success, _error );
+                };
+                
+
+                $scope.removeProveedor = function( Proveedor ) {         
+                    var method = 'POST'; // "PUT"  // "POST"
+                    var url = 'pos/removeproveedor';                     
+                    $http({
+                        method : method,
+                        url : url,
+                        data : angular.toJson(Proveedor),
+                        headers : {
+                        	'Content-Type': 'application/json; charset=UTF-8',
+                            'Accept': 'application/json; charset=UTF-8'
+                        }
+                    }).then( _success, _error );
+                };
+                
+                                    
+                
+                //In case of edit employee, populate form with employee data
+                $scope.editProveedor = function(Proveedor) {
+                	$scope.form = Proveedor;
+                   /* $scope.form.name = customer.name;
+                    $scope.form.customer_id = customer.customer_id;
+                    $scope.form.id = customer.id;
+                    */
+                };
+                
+                
+                /* Private Methods */
+                function _refreshPageData() {
+                    $http({
+                        method : 'GET',
+                        url : 'pos/getallproveedores'
+                    }).then(function successCallback(response) {
+                        $scope.Proveedor = response.data;
+                    }, function errorCallback(response) {
+                        console.log("Error:" + response);
+                    });
+
+                }
+    
+                
+                
+                function _success(response) {
+                    _refreshPageData();
+                    _clearForm()
+                }
+         
+                function _error(response) {
+                	   console.log(response.statusText);
+                }                         
+                
+              //Clear the form
+                function _clearForm() {
+                    $scope.form.Razon_Social = "";
+                    $scope.form.ID = "";
+                    $scope.form.id = -1;
+                };
+                
+                
+                
+                
+                
+            });
+        </script>
+         <style>
+            .button {
+                cursor: pointer;
+            }
+        </style>
+    <head>
+    <body ng-app="CustomerManagement" ng-controller="Proveedorcontroller">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Identificador Proveedor</th>
+                <th>Razon Social</th>
+                <th>Actions</th>
+            </tr>
+             <tr ng-repeat="Proveedor in Proveedor">
+                <td>{{ Proveedor.ID }}</td>
+                <td>{{ Proveedor.Razon_Social }}</td>
+                <td><a ng-click="editProveedor( Proveedor )" class="button">Edit</a> | <a ng-click="removeProveedor( Proveedor )" class="button">Remove</a></td>
+            </tr>
+ 
+        </table>
+ 
+        <h2>Add/Edit Proveedor</h2> 
+        <form ng-submit="submitProveedor()">
+            <table>
+                <tr>
+                    <td>Identificador del Proveedor</td>
+                    <td><input type="text" ng-model="form.ID" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>Razon Social</td>
+                    <td><input type="text" ng-model="form.Razon_Social" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>RUT</td>
+                    <td><input type="text" ng-model="form.RUT" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>Telefono de Contacto</td>
+                    <td><input type="text" ng-model="form.Telefono_Contacto" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>Direccion</td>
+                    <td><input type="text" ng-model="form.Direccion" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>Horario de Disponibilidad</td>
+                    <td><input type="text" ng-model="form.Horario_Disponibilidad" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>Contacto</td>
+                    <td><input type="text" ng-model="form.Contacto" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>Productos</td>
+                    <td><input type="text" ng-model="form.Productos" size="60" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        </form>
+           <a ng-click="_refreshPageData()" class="button">Actualizar</a>
+    </body>
+</html>

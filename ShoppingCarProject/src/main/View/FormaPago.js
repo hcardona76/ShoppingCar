@@ -36,35 +36,18 @@ app.controller('UserCRUDCtrl', ['$scope','UserCRUDService', function ($scope,Use
     
     $scope.addUser = function () {
         if ($scope.user != null && $scope.user.name) {
-            UserCRUDService.addUser($scope.user.nombre, $scope.user.telefono,$scope.user.telefono2, $scope.user.direccion, $scope.user.tipo,$scope.user.ciudad)
+            UserCRUDService.ValideFormapago($scope.user.idCliente, $scope.userTicket,$scope.user.Formapago)
               .then (function success(response){
-                  $scope.message = 'Cliente Agregado!';
+                  $scope.message = 'Verificando!';
                   $scope.errorMessage = '';
               },
               function error(response){
-                  $scope.errorMessage = 'Error adding user!';
+                  $scope.errorMessage = 'Error en la validacion del cliente o forma de pago!';
                   $scope.message = '';
             });
         }
-        else {
-            $scope.errorMessage = 'Please enter a name!';
-            $scope.message = '';
-        }
-    }
-    
-    $scope.getAllUsers = function () {
-        UserCRUDService.getAllUsers()
-          .then(function success(response){
-              $scope.users = response.data._embedded.users;
-              $scope.message='';
-              $scope.errorMessage = '';
-          },
-          function error (response ){
-              $scope.message='';
-              $scope.errorMessage = 'Error getting users!';
-          });
-    }
-
+   }
+      
 }]);
 
 app.service('UserCRUDService',['$http', function ($http) {
@@ -76,19 +59,13 @@ app.service('UserCRUDService',['$http', function ($http) {
         });
 	}
 	
-    this.addUser = function addUser(name, email){
+    this.addUser = function ValideFormaPago(idCliente, Ticket){
         return $http({
           method: 'POST',
           url: 'users',
-          data: {name:name, email:email}
+          data: {cedula:idCLiente}
         });
     }
 	
-    this.getAllUsers = function getAllUsers(){
-        return $http({
-          method: 'GET',
-          url: 'users'
-        });
-    }
-
+    
 }]);

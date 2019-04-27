@@ -61,8 +61,8 @@
                 
               //Clear the form
                 function _clearForm() {
-                    $scope.form.name = "";
-                    $scope.form.customer_id = "";
+                    $scope.form.cedula= "";
+                    $scope.form.ticket = "";
                     $scope.form.id = -1;
                 };
   
@@ -74,7 +74,7 @@
             }
         </style>
     <head>
-    <body ng-app="CustomerManagement" ng-controller="CustomerManagementController">
+    <body ng-app="Forma_Pago" ng-controller="Forma_Pago_controller">
     	<h2>Forma de pago</h2> 
     	<select name="FormaPago">
     		<option value="1">Tarjeta Credito</option>

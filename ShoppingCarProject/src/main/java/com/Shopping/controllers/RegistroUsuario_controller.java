@@ -18,9 +18,6 @@ import com.Shopping.repository.RegistroUsuario_repository;
 @ComponentScan(basePackages="com.Shopping")
 public class RegistroUsuario_controller {
 	
-	@Autowired
-	private RegistroUsuario RegistroUsuario_repository;
-	
 	@GetMapping(path="/Registrar") // Map ONLY GET Requests
 	public @ResponseBody String addNewCliente (
 			@RequestParam long cedula,

@@ -23,6 +23,7 @@ public class Forma_Pago_controller {
 	
 	@GetMapping(path="/ValideFormapago") // Map ONLY GET Requests
 	public @ResponseBody String ValideFormapago (
+			@RequestParam int idCliente,
 			@RequestParam int idRefTiket,
 			@RequestParam int FormaPago) {
 				

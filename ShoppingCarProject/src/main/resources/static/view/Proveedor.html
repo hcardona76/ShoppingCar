@@ -28,7 +28,7 @@
               //HTTP POST/PUT methods for add/edit employee
                 $scope.submitProveedor = function() {         
                     var method = 'POST'; // "PUT"  // "POST"
-                    var url = 'pos/updateProveedor';                     
+                    var url = 'Proveedor/updateProveedor';                     
                     $http({
                         method : method,
                         url : url,
@@ -43,7 +43,7 @@
 
                 $scope.removeProveedor = function( Proveedor ) {         
                     var method = 'POST'; // "PUT"  // "POST"
-                    var url = 'pos/removeProveedor';                     
+                    var url = 'Proveedor/removeProveedor';                     
                     $http({
                         method : method,
                         url : url,
@@ -71,7 +71,7 @@
                 function _refreshPageData() {
                     $http({
                         method : 'GET',
-                        url : 'pos/getallproveedores'
+                        url : 'Proveedor/getallproveedores'
                     }).then(function successCallback(response) {
                         $scope.Proveedor = response.data;
                     }, function errorCallback(response) {

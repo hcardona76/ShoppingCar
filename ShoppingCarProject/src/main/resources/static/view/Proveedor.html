@@ -28,7 +28,7 @@
               //HTTP POST/PUT methods for add/edit employee
                 $scope.submitProveedor = function() {         
                     var method = 'POST'; // "PUT"  // "POST"
-                    var url = 'pos/updatecustomer';                     
+                    var url = 'pos/updateProveedor';                     
                     $http({
                         method : method,
                         url : url,
@@ -43,7 +43,7 @@
 
                 $scope.removeProveedor = function( Proveedor ) {         
                     var method = 'POST'; // "PUT"  // "POST"
-                    var url = 'pos/removeproveedor';                     
+                    var url = 'pos/removeProveedor';                     
                     $http({
                         method : method,
                         url : url,
@@ -121,6 +121,13 @@
              <tr ng-repeat="Proveedor in Proveedor">
                 <td>{{ Proveedor.ID }}</td>
                 <td>{{ Proveedor.Razon_Social }}</td>
+                <td>{{ Proveedor.RUT }}</td>
+                <td>{{ Proveedor.Telefono_Contacto }}</td>
+                <td>{{ Proveedor.Direccion }}</td>
+                <td>{{ Proveedor.Horario_Disponibilidad }}</td>
+                <td>{{ Proveedor.Contacto }}</td>
+                <td>{{ Proveedor.Productos }}</td>
+                
                 <td><a ng-click="editProveedor( Proveedor )" class="button">Edit</a> | <a ng-click="removeProveedor( Proveedor )" class="button">Remove</a></td>
             </tr>
  

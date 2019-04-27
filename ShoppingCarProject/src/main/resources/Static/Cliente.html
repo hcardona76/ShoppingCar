@@ -29,7 +29,7 @@
               //HTTP POST/PUT methods for add/edit employee
                 $scope.submitCliente = function() {         
                     var method = 'POST'; // "PUT"  // "POST"
-                    var url = 'pos/updateCliente';                     
+                    var url = 'Cliente/addCliente';                     
                     $http({
                         method : method,
                         url : url,
@@ -72,7 +72,7 @@
                 function _refreshPageData() {
                     $http({
                         method : 'GET',
-                        url : 'pos/getallClientes'
+                        url : 'Cliente/getallClientes'
                     }).then(function successCallback(response) {
                         $scope.cliente = response.data;
                     }, function errorCallback(response) {

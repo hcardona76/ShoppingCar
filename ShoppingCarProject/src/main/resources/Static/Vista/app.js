@@ -3,9 +3,9 @@ var app = angular.module('app',[]);
 app.controller('UserCRUDCtrl', ['$scope','UserCRUDService', function ($scope,UserCRUDService) {
 	  
     $scope.updateUser = function () {
-        UserCRUDService.updateUser($scope.user.id,$scope.user.nombre,$scope.user.telefono,$scope.user.direccion,$scope.user.celular,$scope.user.tipo)
+        UserCRUDService.updateUser($scope.user.id,$scope.user.name,$scope.user.email)
           .then(function success(response){
-              $scope.message = 'Data del usuario actualizada!';
+              $scope.message = 'User data updated!';
               $scope.errorMessage = '';
           },
           function error(response){
@@ -35,10 +35,10 @@ app.controller('UserCRUDCtrl', ['$scope','UserCRUDService', function ($scope,Use
     }
     
     $scope.addUser = function () {
-        if ($scope.user != null && $scope.user.nombre) {
-            UserCRUDService.addUser($scope.user.nombre, $scope.user.telefono, $scope.user.direccion, $scope.user.celular, $scope.user.tipo)
+        if ($scope.user != null && $scope.user.name) {
+            UserCRUDService.addUser($scope.user.name, $scope.user.email)
               .then (function success(response){
-                  $scope.message = 'Cliente Agregado!';
+                  $scope.message = 'User added!';
                   $scope.errorMessage = '';
               },
               function error(response){
@@ -89,11 +89,11 @@ app.service('UserCRUDService',['$http', function ($http) {
         });
 	}
 	
-    this.addUser = function addUser(nombrecompleto, telefono, direccion, celular, tipo ){
+    this.addUser = function addUser(name, email){
         return $http({
           method: 'POST',
           url: 'users',
-          data: {nombrecompleto:nombrecompleto, telefono:telefono, direccion:direccion, celular:celular, tipo:tipo}
+          data: {name:name, email:email}
         });
     }
 	
@@ -104,11 +104,11 @@ app.service('UserCRUDService',['$http', function ($http) {
         })
     }
 	
-    this.updateUser = function updateUser(id,cedula,nombrecompleto,telefono,direccion,celular,tipo){
+    this.updateUser = function updateUser(id,name,email){
         return $http({
           method: 'PATCH',
           url: 'users/'+id,
-          data: {cedula:cedula, nombrecompleto:nombrecompleto, telefono:telefono, direccion:direccion, celular:celular, tipo:tipo}
+          data: {name:name, email:email}
         })
     }
 	

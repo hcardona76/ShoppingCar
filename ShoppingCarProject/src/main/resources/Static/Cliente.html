@@ -12,7 +12,7 @@
                 //Initialize page with default data which is blank in this example
                 
                 
-                $scope.Cliente = [];
+                $scope.Clientes = [];
                 $scope.form = {
                     id : -1,
                     cedula : "",
@@ -74,7 +74,7 @@
                         method : 'GET',
                         url : 'Cliente/getallClientes'
                     }).then(function successCallback(response) {
-                        $scope.cliente = response.data;
+                        $scope.Clientes = response.data;
                     }, function errorCallback(response) {
                         console.log("Error:" + response);
                     });
@@ -123,7 +123,7 @@
                 <th>Tipo</th>
                 <th>Actions</th>
             </tr>
-             <tr ng-repeat="customer in customers">
+             <tr ng-repeat="Cliente in Clientes">
                 <td>{{ Cliente.cedula }}</td>
                 <td>{{ Cliente.nombrecompleto }}</td>
                 <td>{{ Cliente.telefono }}</td>
@@ -144,7 +144,7 @@
                 </tr>
                 <tr>
                     <td>Nombre</td>
-                    <td><input type="text" ng-model="form.nombre" size="60" /></td>
+                    <td><input type="text" ng-model="form.nombrecompleto" size="60" /></td>
                 </tr>
                 <tr>
                     <td>telefono</td>

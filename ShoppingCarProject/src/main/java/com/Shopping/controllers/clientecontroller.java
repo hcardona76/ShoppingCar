@@ -55,12 +55,11 @@ public class clientecontroller {
 		
 	}
 	
-	
-	
 	@PostMapping(path="/updateCliente") 
 	public @ResponseBody ResponseEntity<String> updateNewCliente (
 			@RequestBody Cliente cliente) {
 		Clienterepository.save(cliente);
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
+	
 }

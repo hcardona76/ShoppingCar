@@ -114,22 +114,25 @@
     <body ng-app="Cliente" ng-controller="Clientecontroller">
         <table>
             <tr>
-                <th>Id</th>
-                <th>Identificador Cliente</th>
-                <th>Nombre</th>
+                <th>Cedula</th>
+                
                 <th>Telefono</th>
                 <th>Direccion</th>
                 <th>Celular</th>
                 <th>Tipo</th>
+                <th>Nombre</th>
                 <th>Actions</th>
             </tr>
+            
              <tr ng-repeat="Cliente in Clientes">
+             
                 <td>{{ Cliente.cedula }}</td>
-                <td>{{ Cliente.nombrecompleto }}</td>
                 <td>{{ Cliente.telefono }}</td>
                 <td>{{ Cliente.direccion }}</td>
                 <td>{{ Cliente.celular }}</td>
                 <td>{{ Cliente.tipo }}</td>
+                <td>{{ Cliente.nombre }}</td>
+                
                 <td><a ng-click="editCustomer( customer )" class="button">Edit</a> | <a ng-click="removeCustomer( customer )" class="button">Remove</a></td>
             </tr>
  

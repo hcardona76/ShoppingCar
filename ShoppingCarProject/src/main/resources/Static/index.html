@@ -111,7 +111,7 @@
             }
         </style>
     <head>
-    <body ng-app="CustomerManagement" ng-controller="CustomerManagementController">
+    <body ng-app="Cliente" ng-controller="Clientecontroller">
         <table>
             <tr>
                 <th>Id</th>
@@ -124,12 +124,12 @@
                 <th>Actions</th>
             </tr>
              <tr ng-repeat="customer in customers">
-                <td>{{ cliente.cedula }}</td>
-                <td>{{ cliente.nombrecompleto }}</td>
-                <td>{{ cliente.telefono }}</td>
-                <td>{{ cliente.direccion }}</td>
-                <td>{{ cliente.celular }}</td>
-                <td>{{ cliente.tipo }}</td>
+                <td>{{ Cliente.cedula }}</td>
+                <td>{{ Cliente.nombrecompleto }}</td>
+                <td>{{ Cliente.telefono }}</td>
+                <td>{{ Cliente.direccion }}</td>
+                <td>{{ Cliente.celular }}</td>
+                <td>{{ Cliente.tipo }}</td>
                 <td><a ng-click="editCustomer( customer )" class="button">Edit</a> | <a ng-click="removeCustomer( customer )" class="button">Remove</a></td>
             </tr>
  

@@ -4,23 +4,32 @@
         <meta charset="utf-8" />
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
            <script type="text/javascript">
-            var app = angular.module("CustomerManagement", []);            
-            app.controller("CustomerManagementController", function($scope, $http) {         
+           
+           
+           
+            var app = angular.module("Cliente", []);            
+            app.controller("Clientecontroller", function($scope, $http) {         
                 //Initialize page with default data which is blank in this example
-                $scope.customers = [];
+                
+                
+                $scope.Cliente = [];
                 $scope.form = {
                     id : -1,
-                    customer_id : "",
-                    name : ""
+                    cedula : "",
+                    nombrecompleto : "",
+                    telefono : "",
+                    direccion : "",
+                    celular : "",
+                    tipo : ""
                 };
 
                 _refreshPageData();
             
                 
               //HTTP POST/PUT methods for add/edit employee
-                $scope.submitCustomer = function() {         
+                $scope.submitCliente = function() {         
                     var method = 'POST'; // "PUT"  // "POST"
-                    var url = 'pos/updatecustomer';                     
+                    var url = 'pos/updateCliente';                     
                     $http({
                         method : method,
                         url : url,
@@ -63,9 +72,9 @@
                 function _refreshPageData() {
                     $http({
                         method : 'GET',
-                        url : 'pos/getallcustomer'
+                        url : 'pos/getallClientes'
                     }).then(function successCallback(response) {
-                        $scope.customers = response.data;
+                        $scope.cliente = response.data;
                     }, function errorCallback(response) {
                         console.log("Error:" + response);
                     });
@@ -108,11 +117,19 @@
                 <th>Id</th>
                 <th>Identificador Cliente</th>
                 <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Celular</th>
+                <th>Tipo</th>
                 <th>Actions</th>
             </tr>
              <tr ng-repeat="customer in customers">
-                <td>{{ customer.customer_id }}</td>
-                <td>{{ customer.name }}</td>
+                <td>{{ cliente.cedula }}</td>
+                <td>{{ cliente.nombrecompleto }}</td>
+                <td>{{ cliente.telefono }}</td>
+                <td>{{ cliente.direccion }}</td>
+                <td>{{ cliente.celular }}</td>
+                <td>{{ cliente.tipo }}</td>
                 <td><a ng-click="editCustomer( customer )" class="button">Edit</a> | <a ng-click="removeCustomer( customer )" class="button">Remove</a></td>
             </tr>
  
@@ -122,15 +139,31 @@
         <form ng-submit="submitCustomer()">
             <table>
                 <tr>
-                    <td>Identificador del Cliente</td>
-                    <td><input type="text" ng-model="form.customer_id" size="60" /></td>
+                    <td>Cedula</td>
+                    <td><input type="text" ng-model="form.cedula" size="60" /></td>
                 </tr>
                 <tr>
                     <td>Nombre</td>
-                    <td><input type="text" ng-model="form.name" size="60" /></td>
+                    <td><input type="text" ng-model="form.nombre" size="60" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="submit" value="Submit" /></td>
+                    <td>telefono</td>
+                    <td><input type="text" ng-model="form.telefono" size="60" /></td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>Direccion</td>
+                    <td><input type="text" ng-model="form.direccion" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>Celular</td>
+                    <td><input type="text" ng-model="form.celular" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>tipo</td>
+                    <td><input type="text" ng-model="form.tipo" size="60" /></td>
+                </tr>
+                    <td colspan="6"><input type="submit" value="Submit" /></td>
                 </tr>
             </table>
         </form>

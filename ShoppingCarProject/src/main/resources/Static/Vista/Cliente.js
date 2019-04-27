@@ -89,11 +89,11 @@ app.service('UserCRUDService',['$http', function ($http) {
         });
 	}
 	
-    this.addUser = function addUser(name, email){
+    this.addUser = function addUser(nombrecompleto, telefono, direccion, celular, tipo ){
         return $http({
           method: 'POST',
           url: 'users',
-          data: {name:name, email:email}
+          data: {nombrecompleto:nombrecompleto, telefono:telefono, direccion:direccion, celular:celular, tipo:tipo}
         });
     }
 	
@@ -104,11 +104,11 @@ app.service('UserCRUDService',['$http', function ($http) {
         })
     }
 	
-    this.updateUser = function updateUser(id,name,email){
+    this.updateUser = function updateUser(id,cedula,nombrecompleto,telefono,direccion,celular,tipo){
         return $http({
           method: 'PATCH',
           url: 'users/'+id,
-          data: {name:name, email:email}
+          data: {cedula:cedula, nombrecompleto:nombrecompleto, telefono:telefono, direccion:direccion, celular:celular, tipo:tipo}
         })
     }
 	

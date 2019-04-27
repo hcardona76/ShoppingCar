@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
            <script type="text/javascript">
-            var app = angular.module("CustomerManagement", []);            
+            var app = angular.module("Proveedor", []);            
             app.controller("Proveedorcontroller", function($scope, $http) {         
                 //Initialize page with default data which is blank in this example
                 $scope.Proveedor = [];
@@ -110,12 +110,18 @@
             }
         </style>
     <head>
-    <body ng-app="CustomerManagement" ng-controller="Proveedorcontroller">
+    <body ng-app="Proveedor" ng-controller="Proveedorcontroller">
         <table>
             <tr>
                 <th>Id</th>
                 <th>Identificador Proveedor</th>
                 <th>Razon Social</th>
+                <th>RUT</th>
+                <th>Telefono_Contacto</th>
+                <th>Direccion</th>
+                <th>Horario_Disponibilidad</th>
+                <th>Contacto</th>
+                <th>Productos</th>
                 <th>Actions</th>
             </tr>
              <tr ng-repeat="Proveedor in Proveedor">

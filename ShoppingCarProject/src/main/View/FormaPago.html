@@ -7,8 +7,8 @@
            
            
            
-            var app = angular.module("RegistroUsuario", []);            
-            app.controller("RegistroUsuario_controller", function($scope, $http) {         
+            var app = angular.module("Forma_pago", []);            
+            app.controller("Forma_Pago_repository", function($scope, $http) {         
                 //Initialize page with default data which is blank in this example
                 
                 
@@ -30,7 +30,7 @@
               //HTTP POST/PUT methods for add/edit employee
                 $scope.submitCliente = function() {         
                     var method = 'POST'; // "PUT"  // "POST"
-                    var url = 'pos/RegistroUsuario';                     
+                    var url = 'pos/Forma_Pago';                     
                     $http({
                         method : method,
                         url : url,
@@ -42,33 +42,7 @@
                     }).then( _success, _error );
                 };
                 
-
-                $scope.removeCustomer = function( customer ) {         
-                    var method = 'POST'; // "PUT"  // "POST"
-                    var url = 'pos/removecustomer';                     
-                    $http({
-                        method : method,
-                        url : url,
-                        data : angular.toJson(customer),
-                        headers : {
-                        	'Content-Type': 'application/json; charset=UTF-8',
-                            'Accept': 'application/json; charset=UTF-8'
-                        }
-                    }).then( _success, _error );
-                };
-                
-                                    
-                
-                //In case of edit employee, populate form with employee data
-                $scope.editCustomer = function(customer) {
-                	$scope.form = customer;
-                   /* $scope.form.name = customer.name;
-                    $scope.form.customer_id = customer.customer_id;
-                    $scope.form.id = customer.id;
-                    */
-                };
-                
-                
+                          
                 /* Private Methods */
                 function _refreshPageData() {
                     $http({
@@ -99,11 +73,7 @@
                     $scope.form.customer_id = "";
                     $scope.form.id = -1;
                 };
-                
-                
-                
-                
-                
+  
             });
         </script>
          <style>
@@ -116,7 +86,7 @@
         <table>
             <tr>
                 <th>Id</th>
-                <th>Identificador Cliente</th>
+                <th>Forma de pago</th>
                 <th>Nombre</th>
                 <th>Telefono</th>
                 <th>Telefono2</th>

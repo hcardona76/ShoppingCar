@@ -36,7 +36,7 @@ app.controller('UserCRUDCtrl', ['$scope','UserCRUDService', function ($scope,Use
     
     $scope.addUser = function () {
         if ($scope.user != null && $scope.user.name) {
-            UserCRUDService.addUser($scope.user.nombre, $scope.user.telefono,$scope.user.telefono2, $scope.user.direccion, $scope.user.tipo,$scope.user.ciudad)
+            UserCRUDService.addUser($scope.user.nombre, $scope.user.telefono,$scope.user.telefono2, $scope.user.direccion,$scope.user.ciudad, $scope.user.tipo)
               .then (function success(response){
                   $scope.message = 'Cliente Agregado!';
                   $scope.errorMessage = '';

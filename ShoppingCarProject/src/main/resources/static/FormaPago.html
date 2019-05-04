@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+           <script type="text/javascript">
+           
+           
+           
+            var app = angular.module("Forma_pago", []);            
+            app.controller("Forma_Pago_repository", function($scope, $http) {         
+                //Initialize page with default data which is blank in this example
+                
+                $scope.Cliente = [];
+                $scope.form = {
+                    id : -1,
+                    cedula : "",
+                    ticket,
+                };
+
+                _refreshPageData();
+            
+                
+              //HTTP POST/PUT methods for add/edit employee
+                $scope.submitCliente = function() {         
+                    var method = 'POST'; // "PUT"  // "POST"
+                    var url = 'pos/ValideFormapago';                     
+                    $http({
+                        method : method,
+                        url : url,
+                        data : angular.toJson($scope.form),
+                        headers : {
+                        	'Content-Type': 'application/json; charset=UTF-8',
+                            'Accept': 'application/json; charset=UTF-8'
+                        }
+                    }).then( _success, _error );
+                };
+                
+                          
+                /* Private Methods */
+                function _refreshPageData() {
+                    $http({
+                        method : 'GET',
+                        url : 'pos/setFormaPago'
+                    }).then(function successCallback(response) {
+                        $scope.cliente = response.data;
+                    }, function errorCallback(response) {
+                        console.log("Error:" + response);
+                    });
+
+                }
+   
+                function _success(response) {
+                    _refreshPageData();
+                    _clearForm()
+                }
+         
+                function _error(response) {
+                	   console.log(response.statusText);
+                }                         
+                
+              //Clear the form
+                function _clearForm() {
+                    $scope.form.cedula= "";
+                    $scope.form.ticket = "";
+                    $scope.form.id = -1;
+                };
+  
+            });
+        </script>
+         <style>
+            .button {
+                cursor: pointer;
+            }
+        </style>
+    <head>
+    <body ng-app="Forma_Pago" ng-controller="Forma_Pago_controller">
+    	<h2>Forma de pago</h2> 
+    	<select name="FormaPago">
+    		<option value="1">Tarjeta Credito</option>
+    		<option value="2">PSE</option>
+    		<option value="3">Efectivo</option>
+    	</select>
+        <a ng-click="_refreshPageData()" class="button">Continuar</a>
+    </body>
+</html>

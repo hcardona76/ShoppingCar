@@ -84,9 +84,6 @@ public class RegistroUsuario {
 	public static boolean VerificaCorreo() {
 		return false;
 	}
-	
 
-	
-	
 	
 }

@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+           <script type="text/javascript">
+           
+           
+           
+            var app = angular.module("Cliente", []);            
+            app.controller("Clientecontroller", function($scope, $http) {         
+                //Initialize page with default data which is blank in this example
+                
+                
+                $scope.Clientes = [];
+                $scope.form = {
+                    id : -1,
+                    cedula : "",
+                    nombrecompleto : "",
+                    telefono : "",
+                    direccion : "",
+                    celular : "",
+                    tipo : ""
+                };
+
+                _refreshPageData();
+            
+                
+              //HTTP POST/PUT methods for add/edit employee
+                $scope.submitCliente = function() {         
+                    var method = 'POST'; // "PUT"  // "POST"
+                    var url = 'Cliente/addCliente';                     
+                    $http({
+                        method : method,
+                        url : url,
+                        data : angular.toJson($scope.form),
+                        headers : {
+                        	'Content-Type': 'application/json; charset=UTF-8',
+                            'Accept': 'application/json; charset=UTF-8'
+                        }
+                    }).then( _success, _error );
+                };
+                
+
+                $scope.removeCustomer = function( customer ) {         
+                    var method = 'POST'; // "PUT"  // "POST"
+                    var url = 'pos/removecustomer';                     
+                    $http({
+                        method : method,
+                        url : url,
+                        data : angular.toJson(customer),
+                        headers : {
+                        	'Content-Type': 'application/json; charset=UTF-8',
+                            'Accept': 'application/json; charset=UTF-8'
+                        }
+                    }).then( _success, _error );
+                };
+                
+                                    
+                
+                //In case of edit employee, populate form with employee data
+                $scope.editCustomer = function(customer) {
+                	$scope.form = customer;
+                   /* $scope.form.name = customer.name;
+                    $scope.form.customer_id = customer.customer_id;
+                    $scope.form.id = customer.id;
+                    */
+                };
+                
+                
+                /* Private Methods */
+                function _refreshPageData() {
+                    $http({
+                        method : 'GET',
+                        url : 'Cliente/getallClientes'
+                    }).then(function successCallback(response) {
+                        $scope.Clientes = response.data;
+                    }, function errorCallback(response) {
+                        console.log("Error:" + response);
+                    });
+
+                }
+    
+                
+                
+                function _success(response) {
+                    _refreshPageData();
+                    _clearForm()
+                }
+         
+                function _error(response) {
+                	   console.log(response.statusText);
+                }                         
+                
+              //Clear the form
+                function _clearForm() {
+                    $scope.form.name = "";
+                    $scope.form.customer_id = "";
+                    $scope.form.id = -1;
+                };
+                
+                
+                
+                
+                
+            });
+        </script>
+         <style>
+            .button {
+                cursor: pointer;
+            }
+        </style>
+    <head>
+    <body ng-app="Cliente" ng-controller="Clientecontroller">
+        <table>
+            <tr>
+                <th>Cedula</th>
+                
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Celular</th>
+                <th>Tipo</th>
+                <th>Nombre</th>
+                <th>Actions</th>
+            </tr>
+            
+             <tr ng-repeat="Cliente in Clientes">
+             
+                <td>{{ Cliente.cedula }}</td>
+                <td>{{ Cliente.telefono }}</td>
+                <td>{{ Cliente.direccion }}</td>
+                <td>{{ Cliente.celular }}</td>
+                <td>{{ Cliente.tipo }}</td>
+                <td>{{ Cliente.nombre }}</td>
+                
+                <td><a ng-click="editCustomer( customer )" class="button">Edit</a> | <a ng-click="removeCustomer( customer )" class="button">Remove</a></td>
+            </tr>
+ 
+        </table>
+ 
+        <h2>Add/Edit Cliente</h2> 
+        <form ng-submit="submitCliente()">
+            <table>
+                <tr>
+                    <td>Cedula</td>
+                    <td><input type="text" ng-model="form.cedula" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td><input type="text" ng-model="form.nombrecompleto" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>telefono</td>
+                    <td><input type="text" ng-model="form.telefono" size="60" /></td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>Direccion</td>
+                    <td><input type="text" ng-model="form.direccion" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>Celular</td>
+                    <td><input type="text" ng-model="form.celular" size="60" /></td>
+                </tr>
+                <tr>
+                    <td>tipo</td>
+                    <td><input type="text" ng-model="form.tipo" size="60" /></td>
+                </tr>
+                    <td colspan="6"><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        </form>
+           <a ng-click="_refreshPageData()" class="button">Actualizar</a>
+    </body>
+</html>

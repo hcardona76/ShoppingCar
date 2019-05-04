@@ -34,7 +34,7 @@ public class Proveedor {
 		private String Contacto;
 		private String Productos;
 		
-		
+	protected Proveedor() {}	
 		
 		public Proveedor(int ID,String Razon_Social,int RUT,int Telefono_Contacto,String Direccion,String Horario_Disponibilidad,String Contacto,String Productos) {			
 			this.ID=ID;

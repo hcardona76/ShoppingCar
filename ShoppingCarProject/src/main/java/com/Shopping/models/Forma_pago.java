@@ -64,6 +64,25 @@ public class Forma_pago {
 		return "Forma_pago [id=" + id + ", idCliente=" + idCliente + ", Nombre=" + Nombre + ", email=" + email
 				+ ", idReferenciaTiket=" + idReferenciaTiket + "]";
 	}
+	
+	public Forma_pago(int idCliente, int idReferenciaTicket) {
+		if (idCliente==0) {
+			return;
+		}
+		if (idReferenciaTicket==0) {
+			return;
+		}
+	}
+	
+	public void Seleccion(String value) {
+		switch(value) {
+			case "PSE":break;
+			case "TDC":break;
+			case "Efectivo":break;
+			default:
+				return;
+		}
+	}
 		
 
 
